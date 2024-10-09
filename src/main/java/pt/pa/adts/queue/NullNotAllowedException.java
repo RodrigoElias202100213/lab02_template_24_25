@@ -5,7 +5,7 @@ public class NullNotAllowedException extends RuntimeException {
         throw new UnsupportedOperationException("TODO - Must be done by the student");
     }
 
-  public NullNotAllowedException(String message) {
-    throw new UnsupportedOperationException("TODO - Must be done by the student");
-  }
+    public NullNotAllowedException(String message) {
+        throw new UnsupportedOperationException("TODO - Must be done by the student");
+    }
 }

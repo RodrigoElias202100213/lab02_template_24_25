@@ -8,7 +8,8 @@ package pt.pa.adts.queue;
 public class QueueEmptyException extends RuntimeException {
 
     public QueueEmptyException() {
-      throw new UnsupportedOperationException("TODO - Must be done by the student");
+
+        throw new UnsupportedOperationException("TODO - Must be done by the student");
     }
 
     public QueueEmptyException(String message) {
