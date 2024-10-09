@@ -3,9 +3,9 @@ package pt.pa.adts.queue;
 import static org.junit.jupiter.api.Assertions.*;
 
 class QueueLinkedListTest {
-
     @org.junit.jupiter.api.BeforeEach
     void setUp() {
+
     }
 
     @org.junit.jupiter.api.Test
