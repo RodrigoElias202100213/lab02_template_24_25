@@ -7,13 +7,14 @@ package pt.pa.adts.queue;
  */
 public class QueueLinkedList<T> implements Queue<T> {
 
-    private ListNode header, trailer;
+    private final ListNode header;
+    private final ListNode trailer;
     private int size;
 
     public QueueLinkedList() {
-        header = new ListNode(null, null, null);
-        trailer = new ListNode(null, header, null);
-        header.next = trailer;
+        this.header = new ListNode(null, null, null);
+        this.trailer = new ListNode(null, header, null);
+        this.header.next = this.trailer;
         size = 0;
     }
 
@@ -21,9 +22,9 @@ public class QueueLinkedList<T> implements Queue<T> {
     public void enqueue(T value) throws NullPointerException {
         if (value == null) throw new NullPointerException("Cannot enqueue a null value.");
 
-        ListNode newNode = new ListNode(value, trailer.prev, trailer);
-        trailer.prev.next = newNode;
-        trailer.prev = newNode;
+        ListNode newNode = new ListNode(value, this.trailer.prev, this.trailer);
+        this.trailer.prev.next = newNode;
+        this.trailer.prev = newNode;
         size++;
     }
 
@@ -31,11 +32,11 @@ public class QueueLinkedList<T> implements Queue<T> {
     public T dequeue() throws QueueEmptyException {
         if (isEmpty()) throw new QueueEmptyException("Queue is empty.");
 
-        ListNode firstNode = header.next;
+        ListNode firstNode = this.header.next;
         T value = firstNode.element;
 
-        header.next = firstNode.next;
-        firstNode.next.prev = header;
+        this.header.next = firstNode.next;
+        firstNode.next.prev = this.header;
 
         size--;
         return value;
@@ -45,7 +46,7 @@ public class QueueLinkedList<T> implements Queue<T> {
     public T front() throws QueueEmptyException {
         if (isEmpty()) throw new QueueEmptyException("Queue is empty.");
 
-        return header.next.element;
+        return this.header.next.element;
     }
 
     @Override
@@ -60,8 +61,8 @@ public class QueueLinkedList<T> implements Queue<T> {
 
     @Override
     public void clear() {
-        header.next = trailer;
-        trailer.prev = header;
+        this.header.next = this.trailer;
+        this.trailer.prev = this.header;
         size = 0;
     }
 
